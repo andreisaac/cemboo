@@ -5,7 +5,7 @@ export default function Video({s, className}) {
   const player = useRef(null);
     //standard video player
     return (
-      <video ref={player} className={className} src={s} controls autoplay>
+      <video ref={player} className={className} src={s} controls autoPlay>
         <source src={s} type="video/mp4" />
         Your browser does not support the video tag.
       </video>

@@ -67,7 +67,7 @@ const FeaturedCarousel:React.FC<props> = ({featured}) => {
    return (
     <>
     <dialog ref={modal} className="modal">
-      <div className="modal-box bg-n800 max-w-full max-h-full max-sm:px-2">
+      <div className="mt-20 pb-20 modal-box bg-n800 max-w-full max-h-full max-sm:px-2">
 
         <a className="mb-4 inline-block float-right text-2xl text-green900 rounded-full bg-n500 py-[5px] px-4 font-jost font-bold cursor-pointer hover:bg-n400 active:scale-90 transition ease-in-out" onClick={closeModal}>x</a>
 
@@ -75,14 +75,14 @@ const FeaturedCarousel:React.FC<props> = ({featured}) => {
 
         <section className="sm:mt-6 sm:ml-6 lg:ml-20 flex flex-row">
 
-          <div className="avatar flex m-1 sm:m-6 lg:m-2 mr-4 sm:mr-8 max-sm:mt-3">
-            <div className="h-12 w-12 sm:w-24 rounded-full">
-              <Image src={selected?.thumbnail_vertical||""} alt="thumbnail"/>
+          <div className="avatar flex m-1 sm:m-6 lg:m-2 mr-4 sm:mr-8 lg:mr-10 max-sm:mt-3">
+            <div className="h-12 w-12 sm:w-24 sm:h-24 rounded-full">
+              <Image src={selected?.thumbnail_vertical||""} width={96} height={96} alt="thumbnail"/>
             </div>
           </div>  
    
 
-          <div>
+          <div className="">
             <h2 className="font-bold text-xl sm:text-3xl mt-2">
               {selected?.title} 
             </h2>

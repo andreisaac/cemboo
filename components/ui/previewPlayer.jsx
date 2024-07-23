@@ -1,12 +1,14 @@
 "use client"
+
+import * as React from "react";
 import {useRef} from "react"
 
-export default function previewPlayer({s, className}) {
-    const player = useRef<HTMLVideoElement>(null);
+export default function PreviewPlayer({s, className}) {
+    const player = useRef(null);
 
     //onMouseOver event to play the video
     const hover = () => {
-        player.current.play()
+      player.current.play()
     }
     //onMouseOut event to pause the video
     const over = () => {
