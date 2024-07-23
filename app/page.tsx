@@ -57,6 +57,9 @@ export default async function Home() {
       
 
       <div className="lg:min-h-screen relative">
+        { 
+          //assets to render on large devices
+        }
         <Image src={greenStroke} className="max-lg:hidden select-none max-h-full h-auto absolute -left-20 lg:left-60" alt="hero image" loading="lazy"/>
         <Image src={tactics} className="max-lg:hidden select-none max-h-full h-auto absolute left-20 top-20 rotate-[-18deg]" alt="hero image" loading="lazy"/>
         <Image src={greenStroke} className="max-lg:hidden select-none max-h-full h-auto absolute right-10 bottom-20" alt="hero image" loading="lazy"/>
@@ -64,7 +67,9 @@ export default async function Home() {
         
         <Image src={hero} className="max-lg:absolute right-0 max z-0 lg:hidden ml-auto w-[70%] !object-right select-none" alt="hero image" loading="lazy"/>
       
-        
+        { 
+          //hero highlight
+        }
         <section className="max-sm:mx-auto sm:ml-10 sm:pt-10 md:pt-10 pt-12 max-lg:top-20 z-50 lg:bottom-20 relative lg:absolute lg:left-20 w-[86%] sm:w-[400px] select-none">
           <h1 className="max-md:text-4xl drop-shadow-text !font-prompt font-black italic text-center">Juve <span className="max-md:text-3xl font-bold text-5xl not-italic text-green900">vs </span> Rome</h1>
           <h2 className="max-md:text-2xl max-md:py-0 mx-14 sm:mx-32 md:mx-20 mb-4 md:mb-8 py-1 font-bold bg-greenWhite text-n800 text-center border-2 border-green200 shadow-squareXl">Highlights</h2>
@@ -73,12 +78,19 @@ export default async function Home() {
           <a className="btn btn-block max-sm:btn-sm md:btn-lg btn-neutral bg-opacity-75 text-xl !z-50"><Image src={play} width={24} className="h-auto" alt="play" loading="lazy"/> Watch Now</a>
         </section>
 
+
+        {
+          //carousel to display only on large devices
+        }
         <div className="max-lg:hidden absolute bottom-10 lg:right-20 xl:right-40 w-[1000px]">
           <FeaturedCarousel featured={featured.slice(0,5)}/>
         </div>
       </div>
   
       <div className="max-md:mt-28 max-lg:mt-40 right-40 bottom-20 z-50 bg-n900">
+        {
+          //carousel to display only on small devices
+        }
         <div className="lg:hidden">
           <FeaturedCarousel featured={featured.slice(0,5)}/>
         </div>
