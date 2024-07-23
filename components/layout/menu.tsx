@@ -4,7 +4,7 @@ import Link from "next/link";
 import {useState} from "react";
 import {motion} from "framer-motion";
 
-import logo from "@images/logoG.svg"
+import logo from "@images/logo.svg"
 import userCircle from "@images/userCircle.svg"
 import search from "@images/search.svg"
 import home from "@images/home.svg"
