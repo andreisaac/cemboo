@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="dark">
-      <body className="relative">
+      <body className="relative overflow-x-hidden">
         
       <div className="fixed max-lg:right-0 max-lg:left-0 lg:top-0 bottom-0 z-20">
         <Nav/>

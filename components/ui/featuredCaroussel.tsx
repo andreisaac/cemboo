@@ -4,6 +4,9 @@ import Image from "next/image";
 import {useRef, useState} from "react";
 import star from "@images/star.svg";
 import PreviewPlayer from "@components/ui/previewPlayer";
+import thumbsUp from "@images/thumbsUp.svg";
+import thumbsDown from "@images/thumbsDown.svg";
+import arrowDown from "@images/arrowDown.svg";
 import { Card, CardContent } from "@components/ui/card"
 import {
   Carousel,
@@ -57,9 +60,84 @@ const emptyObj:movie = {
   thumbnail_vertical: ""
 };
 
+const comments = [{
+  id: "qweq123",
+  date: new Date(),
+  userId: "qasedpi213",
+  userName: "Diana",
+  thumbnail: "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp",
+  comment: "It was said that you would, destroy the Sith, not join them.",
+  likes: ["asdolk", "aslsd", "asdiu", "weuyo", "yoiu"],
+  replys: [{
+    id: "qweq123",
+    userId: "qasedpi213",
+    userName: "Obi Wan",
+    thumbnail: "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp",
+    comment: "True Jedi stuff.",
+    likes: ["asdolk", "aslsd", "asdiu", "weuyo", "yoiu"]
+  },
+  {
+    id: "qweq123",
+    userId: "qasedpi213",
+    userName: "Obi Jan",
+    thumbnail: "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp",
+    comment: "Not really.",
+    likes: ["asdolk", "aslsd", "asdiu"]
+  }]
+},
+{
+  id: "qweq123",
+  date: new Date(),
+  userId: "qasedpi213",
+  userName: "Anakin",
+  thumbnail: "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp",
+  comment: "Not leave it in Darkness.",
+  likes: ["asdolk", "aslsd", "asdiu", "weuyo", "yoiu"],
+  replys: [{
+    id: "qweq123",
+    userId: "qasedpi213",
+    userName: "Obi Wan",
+    thumbnail: "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp",
+    comment: "True Jedi stuff.",
+    likes: ["asdolk", "aslsd", "asdiu", "weuyo", "yoiu"]
+  },
+  {
+    id: "qweq123",
+    userId: "qasedpi213",
+    userName: "Obi Jan",
+    thumbnail: "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp",
+    comment: "Not really.",
+    likes: ["asdolk", "aslsd", "asdiu"]
+  }]
+},
+{
+  id: "qweq123",
+  date: new Date(),
+  userId: "qasedpi213",
+  userName: "Ronin 47",
+  thumbnail: "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp",
+  comment: "It was you who would bring balance to the Force",
+  likes: ["asdolk", "aslsd", "asdiu"],
+  replys: [{
+    id: "qweq123",
+    userId: "qasedpi213",
+    userName: "Obi Wan",
+    thumbnail: "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp",
+    comment: "True Jedi stuff.",
+    likes: ["asdolk", "aslsd", "asdiu", "weuyo", "yoiu"]
+  },
+  {
+    id: "qweq123",
+    userId: "qasedpi213",
+    userName: "Obi Jan",
+    thumbnail: "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp",
+    comment: "Not really.",
+    likes: ["asdolk", "aslsd", "asdiu"]
+  }]
+}];
 
 //random video to display the preview on hover
-const mockVideo = "https://imdb-video.media-imdb.com/vi1546503705/1434659607842-pgv4ql-1720531155544.mp4?Expires=1721764206&Signature=Vjk9B15EH~n-8a3BxpaBG-C4R46LefzrA4JlJobZl7~kYl3NtExasOkciqdxSVgni53AGAZfPLA3-0DMeoC9PrtcHP030L7KcAtEezHkV9wxuC4oxnimuChgAM5J6ORPK87evfmTxhRTMj5ItbmxDHalIGvVhvo9wkvLJ4KyKI4aURsMNTcrL7S6feWaItaa0UP36c1DbL67CqS0qXmRPfFQlvMFXHoebAx318v1DDhJVDGJqw030P1~hsBzZvDj-Pk0hQ4LAbHaIiHlmLZbUSIp7C4sbuQ~mnQBrJZ~nW4wN3RGst4scJxSQsXQR6FjHIIgE3dvwC1waLNvY8YAGw__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA";
+const mockVideo = "https://videos.pexels.com/video-files/26776979/12005612_1920_1080_30fps.mp4";
 
 const FeaturedCarousel:React.FC<props> = ({featured}) => {
   
@@ -94,50 +172,103 @@ const FeaturedCarousel:React.FC<props> = ({featured}) => {
         //video player
         }
         <VideoPlayer s={mockVideo} className="w-full object-contain mt-8 rounded-md"/>
-
-        {
-        //video info
-        }
-        <section className="sm:mt-6 sm:ml-6 lg:ml-20 flex flex-row">
-
-        {
-        //thumnail
-        }
-
-          <div className="avatar flex m-1 sm:m-6 lg:m-2 mr-4 sm:mr-8 lg:mr-10 max-sm:mt-3">
-            <div className="h-12 w-12 sm:w-24 sm:h-24 rounded-full">
-              <Image src={selected?.thumbnail_vertical||""} width={96} height={96} alt="thumbnail"/>
-            </div>
-          </div>  
-
-          {
-        //title and description
-        }
-
-          <div>
-            <h2 className="font-bold text-xl sm:text-3xl mt-2">
+        
+      <section className="flex flex-col">
+            {
+            //title and buttons row
+            }
+          <div className="flex flex-row sm:mx-1 md:mx-4 lg:mx-10  mt-4 lg:mt-8">
+            <h2 className="flex font-bold text-xl sm:text-2xl ml-4 md:ml-36">
               {selected?.title} 
             </h2>
             
-            <span className="font-bold text-base sm:text-lg inline-block mr-2 sm:mr-4">
-              {selected?.release_year}
-            </span>
-            <span className="mx-1 sm:mx-2 font-bold text-base sm:text-lg">
-                {selected?.rating}
-                <Image src={star} className="inline mr-1 sm:mr-2 mb-2" alt="rating" loading="lazy"/>
-            </span>
-            {selected?.genre ? 
-              selected.genre.map((item)=><div key={item} className="badge badge-neutral mr-2">{item}</div>)
-            : ""}
+            <div className="flex-1 flex justify-end gap-2">
+              <a className="btn btn-neutral h-9 min-h-9 rounded-full justify-self-end">Likes</a>
+              <a className="btn btn-neutral h-9 min-h-9 rounded-full justify-self-end">Share</a>
+              <a className="btn btn-neutral h-9 min-h-9 rounded-full justify-self-end">...</a>
+            </div>
+          </div>
+          <div className="flex flex-row sm:mx-1 md:mx-4 lg:mx-10">
+              <div className="flex m-1 sm:m-6 lg:m-2 mr-4 sm:mr-8 lg:mr-10 max-sm:mt-3">
+                <div className="avatar">
+                  <div className="h-12 w-12 sm:w-24 sm:h-24 rounded-full">
+                    <Image src={selected?.thumbnail_vertical||""} width={96} height={96} alt="thumbnail"/>
+                  </div>
+                </div>
+              </div>
+              {
+            // description row
+            }
+            <div className="flex-1 mt-2 sm:mt-4 md:mt-6 pr-4">
+              <span className="text-base sm:text-lg inline-block mr-2 sm:mr-4">
+                {selected?.release_year}
+              </span>
+              <span className="mx-1 sm:mx-2 text-base sm:text-lg">
+                  {selected?.rating}
+                  <Image src={star} className="inline mr-1 sm:mr-2 mb-2" alt="rating" loading="lazy"/>
+              </span>
+              {selected?.genre ? 
+                selected.genre.map((item)=><div key={item} className="badge badge-neutral mr-2">{item}</div>)
+              : ""}
 
-            <p className="text-sm sm:text-xl">
-              {selected?.synopsis}
-            </p>
-          </div>  
-          
-
+              <p className="text-sm sm:text-lg">
+                {selected?.synopsis}
+              </p>
+            </div>  
+          </div>
         </section>
-      </div>
+
+        {
+          //comment section
+        }
+        <section className="mt-8 flex flex-col gap-4 px-6 lg:mx-20 text-sm">
+        <h3 className="text-lg ml-4">Comments:</h3>
+        {comments.map((item)=>{
+          return (
+            <div key={item.id} className="flex flex-row">
+              <div className="avatar mt-2 mr-4">
+                <div className="w-10 h-10 rounded-full">
+                  <img
+                    alt="Tailwind CSS chat bubble component"
+                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                </div>
+              </div>
+              
+              <div className="flex-1 flex flex-col">
+                <p className="font-bold">{item.userName}</p>
+                <p>{item.comment}</p>
+                <div className="flex flex-row gap-2">
+                  <a className="cursor-pointer">
+                    <Image src={thumbsUp} width={30} height={30} className="inline mr-2" alt="thumbs up" loading="lazy"/>
+                    <span className="mt-2 mr-5">{item.likes.length}</span>
+                  </a>
+                  <a className="cursor-pointer">
+                    <Image src={thumbsDown} width={30} height={30} className="inline mr-2" alt="thumbs down" loading="lazy"/>
+                    <span className="mt-2 mr-5">1</span>
+                  </a>
+                </div>
+                <a className="text-blue-500 mt-1 cursor-pointer"><Image src={arrowDown} width={20} height={20} className="inline mr-3" alt="arrow down" loading="lazy"/>{item.replys.length} replys</a>
+              </div>
+            </div>
+          )
+        })}
+        </section>
+        
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       <form method="dialog" className="modal-backdrop">
         <button>close</button>
