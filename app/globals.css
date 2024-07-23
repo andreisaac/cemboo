@@ -1,33 +1,143 @@
 @tailwind base;
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-radius: 20px;
+  scrollbar-color: var(--secondary) var(--primary);
+}
+
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+
+@layer base {
+    @font-face {
+      font-family: 'Prompt';
+      font-style: normal;
+      font-weight: 300;
+      src: url(../images/fonts/Prompt-Regular.woff2) format('woff2');
+    }
+    @font-face {
+        font-family: 'Prompt';
+        font-style: normal;
+        font-weight: 500;
+        src: url(../images/fonts/Prompt-Medium.woff2) format('woff2');
+    }
+    @font-face {
+        font-family: 'Prompt';
+        font-style: normal;
+        font-weight: 700;
+        src: url(../images/fonts/Prompt-Bold.woff2) format('woff2');
+    }
+    @font-face {
+        font-family: 'Prompt';
+        font-style: normal;
+        font-weight: 900;
+        src: url(../images/fonts/Prompt-Black.woff2) format('woff2');
+    }
+    @font-face {
+        font-family: 'Prompt';
+        font-style: italic;
+        font-weight: 900;
+        src: url(../images/fonts/Prompt-BlackItalic.woff2) format('woff2');
+    }
+    @font-face {
+      font-family: 'Jost';
+      font-style: normal;
+      font-weight: 500;
+      src: url(../images/fonts/Jost-500-Medium.woff2) format('woff2');
+    }
+    @font-face {
+      font-family: 'Jost';
+      font-style: normal;
+      font-weight: 700;
+      src: url(../images/fonts/Jost-700-Bold.woff2) format('woff2');
+    }
+    @font-face {
+      font-family: 'FiraSans';
+      font-style: normal;
+      font-weight: 300;
+      src: url(../images/fonts/FiraSans-Regular.woff2) format('woff2');
+    }
+    @font-face {
+      font-family: 'FiraSans';
+      font-style: normal;
+      font-weight: 500;
+      src: url(../images/fonts/FiraSans-Medium.woff2) format('woff2');
+    }
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  
+  .prompt {
+    font-family: 'Prompt'!important;
   }
+
+  .font-fira {
+    font-family: 'FiraSans';
+  }
+
+  .font-jost {
+    font-family: 'Jost';
+  }
+
+
+  body {
+    @apply text-n100;
+    background: white;
+    font-family: 'FiraSans';
+    font-weight: 300;
+    width: 100%!important
+  }
+  h1, h2, h3, .h1, .h1, .h3 {font-family: 'Jost';}
+  h1, .h1 {
+    font-size: 64px;
+    font-weight: 500;
+    line-height: 72px;
+  }
+  h2, .h2 {
+    
+    line-height: 40px;
+    font-size: 32px;
+    font-weight: 700;
+  }
+  h3, .h3 {
+    font-size: 22px;
+    font-weight: 500;
+  }
+  
+  
+  .input, .textarea {
+    @apply border-n300;
+    @apply caret-violet-600;
+    @apply text-slate-950;
+    @apply block
+  }
+  .input:focus, .textarea:focus {
+    @apply outline-purple300
+  }
+  :invalid {
+    @apply border-red500;
+    @apply border-2
+  }
+  
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

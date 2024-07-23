@@ -1,113 +1,90 @@
-import Image from "next/image";
 
-export default function Home() {
+import Image from "next/image";
+import hero from "@images/hero.png";
+import play from "@images/play.svg";
+import greenStroke from "@images/greenStroke.svg";
+import greyStroke from "@images/greyStroke.svg";
+import tactics from "@images/tactics.svg";
+import FeaturedCarousel from "@components/ui/featuredCaroussel";
+
+async function getData() {
+  const res = await fetch('http://localhost:3000/api/featured')
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+ 
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data')
+  }
+  //Parse the json data
+  return res.json()
+}
+
+interface cast {
+  name: string,
+  role: string
+}
+
+interface movie {
+  id: number,
+  title: string,
+  release_year: number,
+  genre: string[],
+  director: string,
+  cast: cast[],
+  rating: number,
+  duration_minutes: number,
+  synopsis: string,
+  thumbnail_horizontal: string,
+  thumbnail_vertical: string
+}
+
+
+export default async function Home() {
+
+  //parse data from mock api
+  const d = await getData();
+  const featured = d.data;
+
+ 
+  
+  
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className="min-h-screen max-w-[3240px] relative bg-no-repeat lg:bg-right bg-contain lg:bg-[url('../images/hero.png')]">
+      
+
+      <div className="lg:min-h-screen relative">
+        <Image src={greenStroke} className="max-lg:hidden select-none max-h-full h-auto absolute -left-20 lg:left-60" alt="hero image" loading="lazy"/>
+        <Image src={tactics} className="max-lg:hidden select-none max-h-full h-auto absolute left-20 top-20 rotate-[-18deg]" alt="hero image" loading="lazy"/>
+        <Image src={greenStroke} className="max-lg:hidden select-none max-h-full h-auto absolute right-10 bottom-20" alt="hero image" loading="lazy"/>
+        <Image src={greyStroke} className="max-lg:hidden select-none max-h-full h-auto absolute right-20 bottom-20 rotate-6" alt="hero image" loading="lazy"/>
+        
+        <Image src={hero} className="max-lg:absolute right-0 max z-0 lg:hidden ml-auto w-[70%] !object-right select-none" alt="hero image" loading="lazy"/>
+      
+        
+        <section className="max-sm:mx-auto sm:ml-10 sm:pt-10 md:pt-10 pt-12 max-lg:top-20 z-50 lg:bottom-20 relative lg:absolute lg:left-20 w-[86%] sm:w-[400px] select-none">
+          <h1 className="max-md:text-4xl drop-shadow-text !font-prompt font-black italic text-center">Juve <span className="max-md:text-3xl font-bold text-5xl not-italic text-green900">vs </span> Rome</h1>
+          <h2 className="max-md:text-2xl max-md:py-0 mx-14 sm:mx-32 md:mx-20 mb-4 md:mb-8 py-1 font-bold bg-greenWhite text-n800 text-center border-2 border-green200 shadow-squareXl">Highlights</h2>
+          <h3 className="drop-shadow-text mt-2 font-bold text-sm sm:text-lg md:text-xl">Serie A 2023/2024 - 6m - Football</h3>
+          <p className="drop-shadow-text mb-4 md:mb-8 text-sm sm:text-base md:text-xl">This match was a classic encounter between two Italian giants, showcasing high-quality football and competitive spirit.</p>
+          <a className="btn btn-block max-sm:btn-sm md:btn-lg btn-neutral bg-opacity-75 text-xl !z-50"><Image src={play} width={24} className="h-auto" alt="play" loading="lazy"/> Watch Now</a>
+        </section>
+
+        <div className="max-lg:hidden absolute bottom-10 lg:right-20 xl:right-40 w-[1000px]">
+          <FeaturedCarousel featured={featured.slice(0,5)}/>
         </div>
       </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+  
+      <div className="mt-10 max-md:mt-20 max-lg:mt-40 right-40 bottom-20 z-50 bg-n900">
+        <div className="lg:hidden">
+          <FeaturedCarousel featured={featured.slice(0,5)}/>
+        </div>
+        <FeaturedCarousel featured={featured.slice(5,10)}/>
+        <FeaturedCarousel featured={featured.slice(10,15)}/>
+      
       </div>
+      
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
     </main>
   );
 }
