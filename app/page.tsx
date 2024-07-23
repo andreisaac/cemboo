@@ -53,10 +53,10 @@ export default async function Home() {
   
   
   return (
-    <main className="min-h-screen max-w-[3240px] relative bg-no-repeat lg:bg-right bg-contain lg:bg-[url('../images/hero.png')]">
+    <main className="min-h-screen max-w-[3240px] relative">
       
 
-      <div className="lg:min-h-screen relative">
+      <div className="lg:min-h-screen relative bg-no-repeat lg:bg-right bg-contain lg:bg-[url('../images/hero.png')] ">
         { 
           //assets to render on large devices
         }
@@ -70,7 +70,7 @@ export default async function Home() {
         { 
           //hero highlight
         }
-        <section className="max-sm:mx-auto sm:ml-10 sm:pt-10 md:pt-10 pt-12 max-lg:top-20 z-50 lg:bottom-20 relative lg:absolute lg:left-20 w-[86%] sm:w-[400px] select-none">
+        <section className="max-sm:mx-auto sm:ml-10 sm:pt-10 md:pt-10 pt-28 max-lg:top-20 z-50 lg:bottom-20 relative lg:absolute lg:left-20 w-[86%] sm:w-[400px] select-none">
           <h1 className="max-md:text-4xl drop-shadow-text !font-prompt font-black italic text-center">Juve <span className="max-md:text-3xl font-bold text-5xl not-italic text-green900">vs </span> Rome</h1>
           <h2 className="max-md:text-2xl max-md:py-0 mx-14 sm:mx-32 md:mx-20 mb-4 md:mb-8 py-1 font-bold bg-greenWhite text-n800 text-center border-2 border-green200 shadow-squareXl">Highlights</h2>
           <h3 className="drop-shadow-text mt-2 font-bold text-sm sm:text-lg md:text-xl">Serie A 2023/2024 - 6m - Football</h3>
@@ -87,7 +87,7 @@ export default async function Home() {
         </div>
       </div>
   
-      <div className="max-md:mt-28 max-lg:mt-40 right-40 bottom-20 z-50 bg-n900">
+      <div className="max-sm:mt-40 max-md:mt-28 max-lg:mt-40 mt-20 z-50 bg-n900">
         {
           //carousel to display only on small devices
         }
