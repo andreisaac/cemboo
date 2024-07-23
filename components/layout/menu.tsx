@@ -14,8 +14,7 @@ import layout from "@images/layout.svg"
 const linkR = (label:string, link:string, image:ImageProps) => {
 
 };
-
-
+ 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
