@@ -71,8 +71,8 @@ export default async function Home() {
           //hero highlight
         }
         <section className="max-sm:mx-auto sm:ml-10 sm:pt-10 md:pt-10 pt-28 max-lg:top-20 z-50 lg:bottom-20 relative lg:absolute lg:left-20 w-[86%] sm:w-[400px] select-none">
-          <h1 className="max-md:text-4xl drop-shadow-text !font-prompt font-black italic text-center">Juve <span className="max-md:text-3xl font-bold text-5xl not-italic text-green900">vs </span> Rome</h1>
-          <h2 className="max-md:text-2xl max-md:py-0 mx-14 sm:mx-32 md:mx-20 mb-4 md:mb-8 py-1 font-bold bg-greenWhite text-n800 text-center border-2 border-green200 shadow-squareXl">Highlights</h2>
+          <h1 className="max-md:text-4xl drop-shadow-text !font-prompt font-black italic md:text-center">Juve <span className="max-md:text-3xl font-bold text-5xl not-italic text-green900">vs </span> Rome</h1>
+          <h2 className="max-md:text-2xl max-md:py-0 w-48 md:mx-20 mb-4 md:mb-8 py-1 font-bold bg-greenWhite text-n800 text-center border-2 border-green200 shadow-squareXl">Highlights</h2>
           <h3 className="drop-shadow-text mt-2 font-bold text-sm sm:text-lg md:text-xl">Serie A 2023/2024 - 6m - Football</h3>
           <p className="drop-shadow-text mb-4 md:mb-8 text-sm sm:text-base md:text-xl">This match was a classic encounter between two Italian giants, showcasing high-quality football and competitive spirit.</p>
           <a className="btn btn-block max-sm:btn-sm md:btn-lg btn-neutral bg-opacity-75 text-xl !z-50"><Image src={play} width={24} className="h-auto" alt="play" loading="lazy"/> Watch Now</a>
