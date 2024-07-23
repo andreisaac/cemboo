@@ -65,7 +65,7 @@ const FeaturedCarousel:React.FC<props> = ({featured}) => {
     };
 
    return (
-    <>
+    <> 
     <dialog ref={modal} className="modal">
       <div className="mt-20 pb-20 modal-box bg-n800 max-w-full max-h-full max-sm:px-2">
 
