@@ -7,6 +7,7 @@ import PreviewPlayer from "@components/ui/previewPlayer";
 import thumbsUp from "@images/thumbsUp.svg";
 import thumbsDown from "@images/thumbsDown.svg";
 import arrowDown from "@images/arrowDown.svg";
+import share from "@images/share.svg";
 import { Card, CardContent } from "@components/ui/card"
 import {
   Carousel,
@@ -183,8 +184,19 @@ const FeaturedCarousel:React.FC<props> = ({featured}) => {
             </h2>
             
             <div className="flex-1 flex justify-end gap-2">
-              <a className="btn btn-neutral h-9 min-h-9 rounded-full justify-self-end">Likes</a>
-              <a className="btn btn-neutral h-9 min-h-9 rounded-full justify-self-end">Share</a>
+              <div className="join">
+                <a className="btn btn-neutral h-9 min-h-9 rounded-full join-item justify-self-end">
+                  <Image src={thumbsUp} width={30} height={30} className="inline mr-1" alt="thumbs up" loading="lazy"/>
+                  13 mil
+                </a>
+                <a className="btn btn-neutral h-9 min-h-9 rounded-full join-item justify-self-end">
+                  <Image src={thumbsDown} width={30} height={30} className="inline mr-1" alt="thumbs up" loading="lazy"/>
+                </a>
+              </div>
+              <a className="btn btn-neutral h-9 min-h-9 rounded-full justify-self-end">
+                <Image src={share} width={25} height={25} className="inline mr-1" alt="thumbs up" loading="lazy"/>
+                Share
+              </a>
               <a className="btn btn-neutral h-9 min-h-9 rounded-full justify-self-end">...</a>
             </div>
           </div>
