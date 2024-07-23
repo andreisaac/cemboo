@@ -78,7 +78,7 @@ export default async function Home() {
         </div>
       </div>
   
-      <div className="mt-10 max-md:mt-20 max-lg:mt-40 right-40 bottom-20 z-50 bg-n900">
+      <div className="max-md:mt-28 max-lg:mt-40 right-40 bottom-20 z-50 bg-n900">
         <div className="lg:hidden">
           <FeaturedCarousel featured={featured.slice(0,5)}/>
         </div>
