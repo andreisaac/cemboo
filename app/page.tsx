@@ -65,12 +65,12 @@ export default async function Home() {
         <Image src={greenStroke} className="max-lg:hidden select-none max-h-full h-auto absolute right-10 bottom-20" alt="hero image" loading="lazy"/>
         <Image src={greyStroke} className="max-lg:hidden select-none max-h-full h-auto absolute right-20 bottom-20 rotate-6" alt="hero image" loading="lazy"/>
         
-        <Image src={hero} className="max-lg:absolute right-0 max z-0 lg:hidden ml-auto w-[70%] !object-right select-none" alt="hero image" loading="lazy"/>
+        <Image src={hero} className="max-lg:absolute right-0 top-6 z-0 lg:hidden ml-auto w-[70%] !object-right select-none" alt="hero image" loading="lazy"/>
       
         { 
           //hero highlight
         }
-        <section className="max-sm:mx-auto sm:ml-10 sm:pt-10 md:pt-10 pt-28 max-lg:top-20 z-50 lg:bottom-20 relative lg:absolute lg:left-20 w-[86%] sm:w-[400px] select-none">
+        <section className="max-sm:mx-auto sm:ml-10 sm:pt-10 md:pt-10 pt-8 max-lg:top-20 z-50 lg:bottom-20 relative lg:absolute lg:left-20 w-[86%] sm:w-[400px] select-none">
           <h1 className="max-md:text-4xl drop-shadow-text !font-prompt font-black italic md:text-center">Juve <span className="max-md:text-3xl font-bold text-5xl not-italic text-green900">vs </span> Rome</h1>
           <h2 className="max-md:text-2xl max-md:py-0 w-48 md:mx-20 mb-4 md:mb-8 py-1 font-bold bg-greenWhite text-n800 text-center border-2 border-green200 shadow-squareXl">Highlights</h2>
           <h3 className="drop-shadow-text mt-2 font-bold text-sm sm:text-lg md:text-xl">Serie A 2023/2024 - 6m - Football</h3>

@@ -58,19 +58,19 @@ const Navbar = () => {
 
         <div className="mx-auto px-8 flex flex-row gap-10 place-content-center">
           <Link href="/" className="place-self-center active:scale-100 hover:scale-110 transition ease-in-out">
-            <Image src={userCircle} width={30} height={30} loading="lazy" alt="user"></Image>
+            <Image src={userCircle} width={25} height={25} loading="lazy" alt="user"></Image>
           </Link>
           <Link href="/" className="place-self-center active:scale-100 hover:scale-110 transition ease-in-out">
-            <Image src={search} width={30} height={30} loading="lazy" alt="search"></Image>
+            <Image src={search} width={25} height={25} loading="lazy" alt="search"></Image>
           </Link>
           <Link href="/" className="place-self-center active:scale-100 hover:scale-110 transition ease-in-out">
-            <Image src={home} width={30} height={30} loading="lazy" alt="home"></Image>
+            <Image src={home} width={25} height={25} loading="lazy" alt="home"></Image>
           </Link>
           <Link href="/" className="place-self-center active:scale-100 hover:scale-110 transition ease-in-out">
-            <Image src={tv} width={30} height={30} loading="lazy" alt="tv"></Image>
+            <Image src={tv} width={25} height={25} loading="lazy" alt="tv"></Image>
           </Link>
           <Link href="/" className="place-self-center active:scale-100 hover:scale-110 transition ease-in-out">
-            <Image src={layout} width={30} height={30} loading="lazy" alt="layout"></Image>
+            <Image src={layout} width={25} height={25} loading="lazy" alt="layout"></Image>
           </Link>
         </div>
             

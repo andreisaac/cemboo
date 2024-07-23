@@ -43,6 +43,21 @@ type props = {
     featured: movie[]
 }
 
+const emptyObj:movie = {
+  id: 0,
+  title: "",
+  release_year: 0,
+  genre: [],
+  director: "",
+  cast: [],
+  rating: 0,
+  duration_minutes: 0,
+  synopsis: "",
+  thumbnail_horizontal: "",
+  thumbnail_vertical: ""
+};
+
+
 //random video to display the preview on hover
 const mockVideo = "https://imdb-video.media-imdb.com/vi1546503705/1434659607842-pgv4ql-1720531155544.mp4?Expires=1721764206&Signature=Vjk9B15EH~n-8a3BxpaBG-C4R46LefzrA4JlJobZl7~kYl3NtExasOkciqdxSVgni53AGAZfPLA3-0DMeoC9PrtcHP030L7KcAtEezHkV9wxuC4oxnimuChgAM5J6ORPK87evfmTxhRTMj5ItbmxDHalIGvVhvo9wkvLJ4KyKI4aURsMNTcrL7S6feWaItaa0UP36c1DbL67CqS0qXmRPfFQlvMFXHoebAx318v1DDhJVDGJqw030P1~hsBzZvDj-Pk0hQ4LAbHaIiHlmLZbUSIp7C4sbuQ~mnQBrJZ~nW4wN3RGst4scJxSQsXQR6FjHIIgE3dvwC1waLNvY8YAGw__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA";
 
@@ -60,6 +75,7 @@ const FeaturedCarousel:React.FC<props> = ({featured}) => {
     };
     const closeModal = () => {
       if (modal.current) {
+        setSelected(emptyObj);
         modal.current.close();
       }
     };
@@ -133,7 +149,7 @@ const FeaturedCarousel:React.FC<props> = ({featured}) => {
     // carousel
     }
 
-   <Carousel className="w-[70%] sm:w-[80%] -mt-2 sm:mt-4 lg:mt-10 mx-auto"
+   <Carousel className="w-[75%] sm:w-[80%] -mt-2 sm:mt-4 lg:mt-10 mx-auto"
          opts={{
            align: "start",
          }}>
