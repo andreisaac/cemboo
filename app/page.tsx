@@ -8,7 +8,7 @@ import tactics from "@images/tactics.svg";
 import FeaturedCarousel from "@components/ui/featuredCaroussel";
 
 async function getData() {
-  const res = await fetch('https://cemboo-9cje.vercel.app/api/featured')
+  const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/api/featured')
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
  
