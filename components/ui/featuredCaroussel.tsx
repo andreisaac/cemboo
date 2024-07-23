@@ -77,7 +77,7 @@ const FeaturedCarousel:React.FC<props> = ({featured}) => {
 
           <div className="avatar flex m-1 sm:m-6 lg:m-2 mr-4 sm:mr-8 max-sm:mt-3">
             <div className="h-12 w-12 sm:w-24 rounded-full">
-              <img src={selected?.thumbnail_vertical} />
+              <Image src={selected?.thumbnail_vertical||""} alt="thumbnail"/>
             </div>
           </div>  
    
@@ -95,7 +95,7 @@ const FeaturedCarousel:React.FC<props> = ({featured}) => {
                 <Image src={star} className="inline mr-1 sm:mr-2 mb-2" alt="rating" loading="lazy"/>
             </span>
             {selected?.genre ? 
-              selected.genre.map((item)=><div className="badge badge-neutral mr-2">{item}</div>)
+              selected.genre.map((item)=><div key={item} className="badge badge-neutral mr-2">{item}</div>)
             : ""}
 
             <p className="text-sm sm:text-xl">

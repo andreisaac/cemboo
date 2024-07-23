@@ -2,7 +2,7 @@
 import {useRef} from "react"
 
 export default function previewPlayer({s, className}) {
-    const player = useRef(null);
+    const player = useRef<HTMLVideoElement>(null);
 
     //onMouseOver event to play the video
     const hover = () => {
