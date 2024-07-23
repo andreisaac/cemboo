@@ -26,7 +26,7 @@ const Navbar = () => {
       }}>
             
         <Link href="/" className="px-3">
-          <Image src={logo} width={70} height={70} loading="lazy" alt="arrow right" className="my-5"></Image>
+          <Image src={logo} width={70} height={70} loading="lazy" alt="arrow right" className="h-auto my-5"></Image>
         </Link>
         
         <div className="px-8 flex-1 flex flex-col gap-10 place-content-center">

@@ -6,7 +6,9 @@ import greenStroke from "@images/greenStroke.svg";
 import greyStroke from "@images/greyStroke.svg";
 import tactics from "@images/tactics.svg";
 import FeaturedCarousel from "@components/ui/featuredCaroussel";
+import data from "@utils/mock";
 
+//have to ignore this call to deploy on vercel to make a quick preview
 async function getData() {
   const res = await fetch(process.env.NEXT_PUBLIC_API_URL + 'api/featured')
   // The return value is *not* serialized
@@ -43,8 +45,9 @@ interface movie {
 export default async function Home() {
 
   //parse data from mock api
-  const d = await getData();
-  const featured = d.data;
+  const featured = data;
+  console.log(featured);
+  
 
  
   
