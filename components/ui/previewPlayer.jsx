@@ -15,7 +15,7 @@ export default function PreviewPlayer({s, className}) {
         player.current.pause()
     }
     return (
-      <video ref={player} className={className} src={s} onMouseOver={hover} onMouseOut={over} controls={false} loop muted>
+      <video ref={player} className={className} src={s} onMouseOver={hover} onMouseOut={over} controls={false} loop muted preload="none">
         Your browser does not support the video tag.
       </video>
     )

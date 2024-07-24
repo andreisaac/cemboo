@@ -299,10 +299,10 @@ const FeaturedCarousel:React.FC<props> = ({featured}) => {
            <CarouselContent>
              {featured.map((item:movie) => (
 
-               <CarouselItem key={item.id} className="pl-1 md:pl-2 sm:mt-4 lg:mt-6 basis-1/3 lg:basis-1/5">
+               <CarouselItem key={item.id} className="pl-1 md:pl-2 sm:mt-4 lg:mt-6 basis-1/3 lg:basis-1/5 z-0 hover:z-10 hover:scale-105 transition ease-in-out cursor-pointer">
 
                  <div className="my-4">
-                   <Card className="shadow-squareXl hover:scale-105 transition ease-in-out cursor-pointer relative" onClick={()=>openDialog(item)}>
+                   <Card className="shadow-squareXl relative" onClick={()=>openDialog(item)}>
                      <CardContent className="flex aspect-[16/11] bg-n900 items-center justify-center p-0 md:p-[2px] border border-slate-600 rounded-md">
 
                          <PreviewPlayer className="absolute z-50 opacity-0 hover:opacity-100 transition ease-in-out !object-fill w-full h-full rounded-md" s={mockVideo} />
@@ -311,7 +311,7 @@ const FeaturedCarousel:React.FC<props> = ({featured}) => {
                      </CardContent>
                    </Card>
     
-                   <p className="max-sm:hidden text-n100 !font-prompt md:font-bold text-xs sm:text-md text-center drop-shadow-text shadow-neutral-100">{item.title}</p>
+                   <p className="mt-2 pl-3 max-sm:hidden text-n100 !font-prompt md:font-medium text-xs sm:text-base drop-shadow-text shadow-neutral-100">{item.title} <span className="float-right mr-2 text-normal">{item.release_year}</span></p>
                  </div>
 
                </CarouselItem>
