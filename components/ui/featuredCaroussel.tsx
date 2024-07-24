@@ -299,7 +299,7 @@ const FeaturedCarousel:React.FC<props> = ({featured}) => {
            <CarouselContent>
              {featured.map((item:movie) => (
 
-               <CarouselItem key={item.id} className="pl-1 md:pl-2 sm:mt-4 lg:mt-6 basis-1/3 lg:basis-1/5 z-0 hover:z-10 hover:scale-105 transition ease-in-out cursor-pointer">
+               <CarouselItem key={item.id} className="pl-1 md:pl-2 sm:mt-4 lg:mt-6 basis-1/3 lg:basis-1/4 z-0 hover:z-10 hover:scale-105 transition ease-in-out cursor-pointer">
 
                  <div className="my-4">
                    <Card className="shadow-squareXl relative" onClick={()=>openDialog(item)}>
