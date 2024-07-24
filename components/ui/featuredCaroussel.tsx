@@ -311,7 +311,7 @@ const FeaturedCarousel:React.FC<props> = ({featured}) => {
                      </CardContent>
                    </Card>
     
-                   <p className="mt-2 pl-3 max-sm:hidden text-n100 !font-prompt md:font-medium text-xs sm:text-base drop-shadow-text shadow-neutral-100">{item.title} <span className="float-right mr-2 text-normal">{item.release_year}</span></p>
+                   <p className="mt-2 pl-3 max-sm:hidden text-n100 !font-prompt md:font-medium text-xs sm:text-base drop-shadow-text shadow-neutral-100">{item.title}</p>
                  </div>
 
                </CarouselItem>
